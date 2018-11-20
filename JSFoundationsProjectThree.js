@@ -8,9 +8,24 @@ class Person
 {
     constructor(name, age) {
         
-        this._name = name;
-        this._age = age;
-		    
+        if (typeof (name) === 'string')
+        {
+            this._name = name;
+        }
+        
+        if (typeof (age) === 'number')
+        {
+            this._age = age;
+        }
+        
+        for (let property in this.Person)
+        {
+            if(property === '')
+            {
+                console.log('One of your inputs was incorrect')
+                delete this;
+            }
+        }
     }
 
     get name()
